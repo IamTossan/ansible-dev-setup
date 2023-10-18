@@ -1,0 +1,7 @@
+- name: Customizing environment
+  hosts: localhost
+  connection: local
+  roles:
+    - role: "roles/common"
+    - role: "roles/setup-terminal"
+    - role: "roles/setup-neovim"

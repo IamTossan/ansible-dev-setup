@@ -1,0 +1,4 @@
+- name: "Copy BashRC"
+  copy:
+    src: "{{ role_path }}/files/.bashrc"
+    dest: "{{ ansible_env.HOME }}"

@@ -1,0 +1,49 @@
+- name: Download nvim
+  get_url: url=https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+           dest=~/Downloads/nvim-linux64.tar.gz
+           checksum="sha256:https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz.sha256sum"
+
+- name: Extract nvim
+  unarchive:
+    creates: ~/.local/share/nvim-linux64
+    src: ~/Downloads/nvim-linux64.tar.gz
+    dest: ~/.local/share
+
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: ~/.local/share/nvim-linux64/bin/nvim
+    dest: ~/.local/bin/nvim 
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    state: link
+
+- name: Download nerd font
+  get_url: url=https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip
+           dest=~/Downloads/Hack.zip
+
+- name: Create font folder
+  file:
+    path: ~/.local/share/fonts
+    state: directory
+
+- name: Extract nerd font
+  unarchive:
+    src: ~/Downloads/Hack.zip
+    dest: ~/.local/share/fonts
+
+- name: Install Packages
+  package:
+    name:
+      - ripgrep
+    state: latest
+  become: true
+  become_method: sudo
+
+- name: Install neovim distros
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.location }}"
+    depth: 1
+  loop:
+    - { repo: "https://github.com/NvChad/NvChad", location: "~/.local/share/NvChad" }
+    - { repo: "https://github.com/nvim-lua/kickstart.nvim", location: "~/.local/share/nvim" }
