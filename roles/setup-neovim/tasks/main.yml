@@ -45,5 +45,5 @@
     dest: "{{ item.location }}"
     depth: 1
   loop:
-    - { repo: "https://github.com/NvChad/NvChad", location: "~/.local/share/NvChad" }
-    - { repo: "https://github.com/nvim-lua/kickstart.nvim", location: "~/.local/share/nvim" }
+    - { repo: "https://github.com/NvChad/NvChad", location: "~/.config/NvChad" }
+    - { repo: "https://github.com/nvim-lua/kickstart.nvim", location: "~/.config/nvim" }

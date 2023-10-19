@@ -123,7 +123,7 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export XDG_CONFIG_HOME=~/.config
 alias vim="nvim"
 
-alias nvim-chad="XDG_CONFIG_HOME=~/.config NVIM_APPNAME=NvChad nvim"
+alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 
 nvims() {
   items=("default" "NvChad")
