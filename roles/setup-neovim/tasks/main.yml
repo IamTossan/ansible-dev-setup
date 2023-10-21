@@ -47,3 +47,8 @@
   loop:
     - { repo: "https://github.com/NvChad/NvChad", location: "~/.config/NvChad" }
     - { repo: "https://github.com/nvim-lua/kickstart.nvim", location: "~/.config/nvim" }
+
+- name: Copy NvChad custom config
+  copy:
+    src: "{{ role_path }}/files/custom"
+    dest: ~/.config/NvChad/lua
