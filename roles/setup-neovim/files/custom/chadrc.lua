@@ -13,4 +13,16 @@ vim.api.nvim_create_user_command(
   { nargs = "*" }
 )
 
+vim.api.nvim_create_user_command(
+  "SwitchBuffer",
+  function(opts)
+    local bufs = vim.t.bufs
+    if not bufs or tonumber(opts.fargs[1]) > #bufs then
+      return
+    end
+    vim.cmd("b" .. bufs[tonumber(opts.fargs[1])])
+  end,
+  { nargs = 1 }
+)
+
 return M
