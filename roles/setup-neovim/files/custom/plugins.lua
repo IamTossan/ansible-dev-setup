@@ -48,6 +48,9 @@ local plugins = {
         end,
       },
     }
+  },
+  {
+    "tlaplus-community/tlaplus-nvim-plugin"
   }
 }
 
