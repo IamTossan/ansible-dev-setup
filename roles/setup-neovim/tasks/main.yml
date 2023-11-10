@@ -35,7 +35,8 @@
   package:
     name:
       - ripgrep
-      - bellsoft-java11
+      # - bellsoft-java11
+      - openjdk-11-jre
     state: latest
   become: true
   become_method: sudo
@@ -56,7 +57,7 @@
 
 - name: Install tlaps
   command:
-    cmd: ~/Downloads/tlaps-1.4.5-x86_64-linux-gnu-inst.bin
+    cmd: "/home/{{ ansible_env.USER }}/Downloads/tlaps-1.4.5-x86_64-linux-gnu-inst.bin"
     creates: /usr/local/bin/tlapm
   become: yes
 
