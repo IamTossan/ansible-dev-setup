@@ -14,7 +14,7 @@
 - name: Install tpm
   git:
     repo: "https://github.com/tmux-plugins/tpm"
-    dest: "~/.local/share/tmux"
+    dest: "~/.local/share/tmux/plugins/tpm"
     depth: 1
 
 - name: Copy tmux custom config
