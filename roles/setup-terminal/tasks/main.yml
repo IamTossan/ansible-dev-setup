@@ -2,6 +2,7 @@
   copy:
     src: "{{ role_path }}/files/.bashrc"
     dest: "{{ ansible_env.HOME }}"
+    backup: yes
 
 - name: Install tmux
   package:
