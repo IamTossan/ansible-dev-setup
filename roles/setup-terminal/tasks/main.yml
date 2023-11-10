@@ -2,3 +2,21 @@
   copy:
     src: "{{ role_path }}/files/.bashrc"
     dest: "{{ ansible_env.HOME }}"
+
+- name: Install tmux
+  package:
+    name:
+      - tmux
+  become: true
+  become_method: sudo
+
+- name: Install tpm
+  git:
+    repo: "https://github.com/tmux-plugins/tpm"
+    dest: "~/.local/share/tmux"
+    depth: 1
+
+- name: Copy tmux custom config
+  copy:
+    src: "{{ role_path }}/files/tmux"
+    dest: ~/.config
